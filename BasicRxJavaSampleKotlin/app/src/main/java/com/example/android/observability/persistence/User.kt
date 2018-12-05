@@ -26,4 +26,8 @@ data class User(@PrimaryKey
                 @ColumnInfo(name = "userid")
                 val id: String = UUID.randomUUID().toString(),
                 @ColumnInfo(name = "username")
-                val userName: String)
+                val userName: String,
+                @ColumnInfo(name = "passwordKey")
+                val passwordKey: String,
+                @ColumnInfo(name = "passwordValue")
+                val passwordValue: String)

@@ -24,7 +24,7 @@ import android.content.Context
 /**
  * The Room database that contains the Users table
  */
-@Database(entities = arrayOf(User::class), version = 1)
+@Database(entities = arrayOf(User::class), version = 3)
 abstract class UsersDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -41,6 +41,7 @@ abstract class UsersDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
                 Room.databaseBuilder(context.applicationContext,
                         UsersDatabase::class.java, "Sample.db")
+                        .fallbackToDestructiveMigration()
                         .build()
     }
 }

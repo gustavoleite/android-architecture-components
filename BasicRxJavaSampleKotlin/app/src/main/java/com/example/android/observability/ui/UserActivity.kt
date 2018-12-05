@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.android.observability.ui
 
 import androidx.lifecycle.ViewModelProviders
@@ -27,9 +11,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_user.*
 
-/**
- * Main screen of the app. Displays a user name and gives the option to update the user name.
- */
 class UserActivity : AppCompatActivity() {
 
     private lateinit var viewModelFactory: ViewModelFactory
@@ -68,11 +49,12 @@ class UserActivity : AppCompatActivity() {
 
     private fun updateUserName() {
         val userName = user_name_input.text.toString()
+        val password = user_password_input.text.toString()
         // Disable the update button until the user name update has been done
         update_user_button.isEnabled = false
         // Subscribe to updating the user name.
         // Enable back the button once the user name has been updated
-        disposable.add(viewModel.updateUserName(userName)
+        disposable.add(viewModel.updateUserName(userName, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ update_user_button.isEnabled = true },
