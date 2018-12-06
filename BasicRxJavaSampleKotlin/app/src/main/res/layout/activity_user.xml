@@ -8,15 +8,10 @@
               tools:context="com.example.android.observability.ui.UserActivity"
     android:layout_marginHorizontal="24dp">
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="32sp" tools:text="Hello World!"/>
-
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Usuário">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,24 +28,36 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/user_password_input"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/update_user_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/update_user"/>
-
-    <Button
+        android:id="@+id/auth_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AUTENTICAR"/>
 
     <Button
+        android:id="@+id/update_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CADASTRAR"/>
+
+    <TextView
+        android:layout_marginTop="18dp"
+        android:textSize="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuários cadastrados: "/>
+
+    <TextView
+        android:id="@+id/users_list"
+        android:layout_marginTop="18dp"
+        android:textSize="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."/>
 </LinearLayout>
